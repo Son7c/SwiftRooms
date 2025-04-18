@@ -93,9 +93,10 @@ async function main() {
     await mongoose.connect(dburl);
 }
 
-// app.get("/", (req, res) => {
-//     res.send("Hi i am root")
-// })
+app.get('/', (req, res) => {
+    res.redirect('/listings'); // Redirect to the listings page
+});
+
 
 
 
