@@ -21,7 +21,7 @@ module.exports.createListing=async (req, res) => {
     let url=req.file.path;
     let filename=req.file.filename; 
     let newlisting = new Listing(req.body.listing);
-    newlisting.image={url,filename};
+    newListing.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     newlisting.owner=req.user._id;
     const result = await geocoder.geocode(newlisting.location);
     const geo= result[0]; // Top result

@@ -27,7 +27,7 @@ router
     .get(wrapAsync(listingController.showListing))
 
     //editSubmitRoute
-    .put(isLoggedIn, isOwner, upload.single('listing[image]'), validateListing, wrapAsync(listingController.editListing))
+    .put(isLoggedIn, isOwner, upload.array('listing[images]', 1), validateListing, wrapAsync(listingController.editListing))
 
     //delete route
     .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing))

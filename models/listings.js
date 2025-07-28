@@ -5,10 +5,9 @@ const schema=mongoose.Schema;
 const listingSchema=new schema({
     title:String,
     description:String,
-    image:{
-        url:String,
-        filename:String, 
-    },
+    images: [
+        { url: String, filename: String }
+    ],      
     price:Number,
     location:String,
     country:String,
