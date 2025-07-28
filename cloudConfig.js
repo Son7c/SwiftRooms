@@ -13,11 +13,7 @@ const storage = new CloudinaryStorage({
     params: {
       folder: 'swiftRooms_DEV',
       allowedFormats:["png","jpg","jpeg"],
-      public_id: (req, file) => {
-        const timestamp = Date.now();
-        const random = Math.floor(Math.random() * 10000);
-        return `image_${timestamp}_${random}`;
-      }      
+      public_id: file.originalname.split('.')[0],     
     },
   });
 
