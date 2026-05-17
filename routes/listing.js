@@ -15,7 +15,7 @@ router
     .get(wrapAsync(listingController.index))
 
     //Create Listing
-    .post(isLoggedIn, upload.single('listing[image]'), wrapAsync(listingController.createListing));
+    .post(isLoggedIn, upload.single('listing[images]'), wrapAsync(listingController.createListing));
 
 
 //New listing form
@@ -27,7 +27,7 @@ router
     .get(wrapAsync(listingController.showListing))
 
     //editSubmitRoute
-    .put(isLoggedIn, isOwner, upload.array('listing[images]', 1), validateListing, wrapAsync(listingController.editListing))
+    .put(isLoggedIn, isOwner, upload.single('listing[images]'), validateListing, wrapAsync(listingController.editListing))
 
     //delete route
     .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing))
